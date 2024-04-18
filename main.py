@@ -41,6 +41,7 @@ def ordenar_vector(vector, num_hilos):
     for thread in threads:
         thread.join()
     vector_ordenado = unir_vectores(subvectores)
+    return vector_ordenado
     # print(f"Vector ordenado final: {vector_ordenado}")
 
 
@@ -53,10 +54,15 @@ tiempo_list = []
 for num_hilos in range(1, 500):
     vector_grande = list(vector_grande_copia)
     suma_de_tiempos = 0
-    ordenar_vector(vector_grande, num_hilos)
+    vector_ordenado = ordenar_vector(vector_grande, num_hilos)
     print(f"La suma de tiempo total es: {suma_de_tiempos} con {num_hilos} hilos")
     num_hilos_list.append(num_hilos)
     tiempo_list.append(suma_de_tiempos)
+    (
+        print("Se mantienen los valores")
+        if vector_ordenado.sort() == vector_grande_copia.sort()
+        else print("Los valores no se mantienen")
+    )
 
 # Graficar los datos
 plt.plot(num_hilos_list, tiempo_list)

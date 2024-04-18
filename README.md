@@ -7,3 +7,15 @@ Se probó con un vector de 1_000_000 elementos, con 300 y 500 hilos y la tendenc
 ![](Ejecucion_con_500_hilos.png)
 
 Para solucionar el tema del ordenamiento, se puede agregar un '.sort()' al final de la función 'ordenar_vector'. Esto ordenaría el vector grande, el cual parece estar compuesto de varios subvectores ordenados. Sería interesante analizar si el tener estas secciones subordenadas afecta positivamente el tiempo de ejecución del ordenamiento final.
+
+En cuanto a la verficación de si los valores son los mismos después de ordenar, se puede hacer una comparación entre el vector original y el vector ordenado. En este caso, el resultado indicó que los valores eran los mismos.
+
+```python
+(
+    print("Se mantienen los valores")
+    if vector_ordenado.sort() == vector_grande_copia.sort()
+    else print("Los valores no se mantienen")
+)
+```
+
+![](Verificación.png)
